@@ -4,6 +4,9 @@ import { sequelize } from '../models/index.js';
 
 const seedAll = async (): Promise<void> => {
   try {
+    await sequelize.authenticate();
+    console.log('\n----- DATABASE CONNECTED -----\n');
+    
     await sequelize.sync({ force: true });
     console.log('\n----- DATABASE SYNCED -----\n');
     
